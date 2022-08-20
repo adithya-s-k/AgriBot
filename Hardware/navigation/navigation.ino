@@ -57,40 +57,48 @@ void loop()
   
   if (front > 1 && front < 10) {
 //    delay(1000); // Wait for 1000 millisecond(s)
-    digitalWrite(4, LOW);
-    digitalWrite(5, LOW);
-    digitalWrite(8, LOW);
-    digitalWrite(7, LOW);
-
-    delay(1000);
-
-    servo_9.write(0);
-    delay(2000); // Wait for 2000 millisecond(s)
-    front_left = 0.01723 * readUltrasonicDistance(2, 1);
-    Serial.print("Left reading:");
-    Serial.println(front_left);
-
-    servo_9.write(180);
-    delay(2000); // Wait for 2000 millisecond(s)
-    front_right = 0.01723 * readUltrasonicDistance(2, 1);
-    Serial.print("Left reading:");
-    Serial.println(front_right);
-    
-
-    if (front_right > front_left) {
-      // turn right
+      digitalWrite(4, LOW);
+      digitalWrite(5, LOW);
+      digitalWrite(8, LOW);
+      digitalWrite(7, LOW);
+  
+      delay(1000);
+  
+      servo_9.write(0);
+      delay(1000); // Wait for 2000 millisecond(s)
+      front_left = 0.01723 * readUltrasonicDistance(2, 1);
+      delay(1000);
+      Serial.print("Left reading:");
+      Serial.println(front_left);
+  
+      servo_9.write(180);
+      delay(1000); // Wait for 2000 millisecond(s)
+      front_right = 0.01723 * readUltrasonicDistance(2, 1);
+      delay(1000);
+      Serial.print("Left reading:");
+      Serial.println(front_right);
+      
+      //  turn left
       digitalWrite(4, HIGH);
       digitalWrite(5, LOW);
       digitalWrite(8, LOW);
       digitalWrite(7, HIGH);
-    }
-    if (front_right < front_left) {
-      // turn left
-      digitalWrite(4, LOW);
-      digitalWrite(5, HIGH);
-      digitalWrite(8, HIGH);
-      digitalWrite(7, LOW);
-    }
+      delay(7000);
+  //
+  //    if (front_right > front_left) {
+  //      // turn right
+  //      digitalWrite(4, HIGH);
+  //      digitalWrite(5, LOW);
+  //      digitalWrite(8, LOW);
+  //      digitalWrite(7, HIGH);
+  //    }
+  //    if (front_right < front_left) {
+  //      // turn left
+  //      digitalWrite(4, LOW);
+  //      digitalWrite(5, HIGH);
+  //      digitalWrite(8, HIGH);
+  //      digitalWrite(7, LOW);
+  //    }
   }
 //  if (left > 1 && left < 40) {
 //    // turn right
@@ -106,13 +114,11 @@ void loop()
 //    digitalWrite(8, HIGH);
 //    digitalWrite(7, LOW);
 //  }
-  digitalWrite(4, HIGH);
-  digitalWrite(5, LOW);
-  digitalWrite(8, HIGH);
-  digitalWrite(7, LOW);
-  timer++;
-  Serial.print("Timer :");
-  Serial.println(timer);
+// forward motion
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
+  digitalWrite(8, LOW);
+  digitalWrite(7, HIGH);
+
   Serial.println("--------------------------------");
-  delay(100);
 }
