@@ -10,7 +10,8 @@ To determine the soil characteristics we require the use of a robot crane with s
 
 ![Ppt](./Assets/images_ppt.jpeg)
 
-![Video](./Assets/final.mp4)
+
+https://user-images.githubusercontent.com/27956426/194697758-557e2424-4905-4786-808d-87d2361a4efc.mp4
 
 **Members**
 
