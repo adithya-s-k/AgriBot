@@ -19,38 +19,42 @@ void setup(){
 
   Wire.begin();     
   mpu.begin();     
-  Serial.print(F("MPU6050 status: "));
-  Serial.println(F("Calculating offsets, do not move MPU6050"));   
+//  Serial.print(F("MPU6050 status: "));
+//  Serial.println(F("Calculating offsets, do not move MPU6050"));   
   delay(1000);
   mpu.calcGyroOffsets();     //Calibrate gyroscope
-  Serial.println("Done!\n");
+//  Serial.println("Done!\n");
 
 }
 
 void loop(){
   delay(1000);
   int chk = DHT.read11(DHT11_PIN);
-  Serial.print("Temperature = ");
-  Serial.println(DHT.temperature);
-  Serial.print("Humidity = ");
-  Serial.println(DHT.humidity);
+//  Serial.print("Temperature = ");
+  Serial.print(DHT.temperature);
+  Serial.print(" ");
+//  Serial.print("Humidity = ");
+  Serial.print(DHT.humidity);
+  Serial.print(" ");
   delay(1000);
 
     mpu.update();    //Get values from MPU
-    Serial.print("Angle x = ");
+//    Serial.print("Angle x = ");
     Serial.print(int(mpu.getAngleX()));
-    Serial.print(" | ");
-    Serial.print("Angle y = ");
+    Serial.print(" ");
+//    Serial.print("Angle y = ");
     Serial.print(int(mpu.getAngleY()));
-    Serial.print(" | ");
-    Serial.print("Angle Z = ");
-    Serial.println(int(mpu.getAngleZ()));
+    Serial.print(" ");
+//    Serial.print("Angle Z = ");
+    Serial.print(int(mpu.getAngleZ()));
+    Serial.print(" ");
     delay(100);
 
   int Moisture = analogRead(Moisture_signal);
-  Serial.print("Soil Moisture Level: ");
-  Serial.println(Moisture);
+//  Serial.print("Soil Moisture Level: ");
+  Serial.print(Moisture);
+  Serial.print("\n");
   delay(200);
-  Serial.println("---------------------------------------------");
+//  Serial.println("---------------------------------------------");
   
 }

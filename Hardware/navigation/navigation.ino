@@ -65,7 +65,7 @@ void loop()
       delay(1000);
   
       servo_9.write(0);
-      delay(1000); // Wait for 2000 millisecond(s)
+      delay(1`000); // Wait for 2000 millisecond(s)
       front_left = 0.01723 * readUltrasonicDistance(2, 1);
       delay(1000);
       Serial.print("Left reading:");
